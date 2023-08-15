@@ -1,13 +1,13 @@
 @extends('layouts.master')
 
-@section('title', 'Create Category')
+@section('title', 'Create Posts')
 
 @section('content')
 
     <div class="container-fluid px-4">
         <div class="card mt-4">
             <div class="card-header">
-                <h4>Add Category</h4>
+                <h4>Add Post</h4>
             </div>
             <div class="card-body">
 
@@ -20,11 +20,20 @@
                 @endif
 
 
-                <form action="{{ url('admin/add-category')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{ url('admin/add-post')}}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="mb-3">
-                        <label for="">Category Name</label>
+                        <label for="">Category</label>
+                        <select name="category_id" class="form-control" >
+                            @foreach ($category as $cateitem)
+                                <option value="{{ $cateitem->id}}">{{ $cateitem->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="">Post Name</label>
                         <input type="text" name="name" class="form-control">
                     </div>
 
@@ -38,19 +47,21 @@
                         <input type="file" name="image" class="form-control" />
                     </div>
 
+                    <div class="mb-3">
+                        <label for="">Description</label>
+                        <textarea  name="description" rows="4" class="form-control"></textarea>
+                    </div>
+
                     <h6>Status Mode</h6>
                     <div class="row">
-                        <div class="col-md-3 mb-3">
-                            <label>Navbar Status</label>
-                            <input type="checkbox" name="navbar_status" />
-                        </div>
-                        <div class="col-md-3 mb-3">
+
+                        <div class="col-md-4 mb-3">
                             <label>Status</label>
                             <input type="checkbox" name="status" />
                         </div>
 
-                        <div class="col-md-6">
-                            <button type="submit" class="btn btn-primary float-end">Save Category</button>
+                        <div class="col-md-8">
+                            <button type="submit" class="btn btn-primary float-end">Save Post</button>
                         </div>
                     </div>
 
