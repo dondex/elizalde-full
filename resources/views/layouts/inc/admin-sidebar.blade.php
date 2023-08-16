@@ -3,7 +3,7 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Core</div>
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ url('admin/dashboard')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Dashboard
                 </a>
@@ -33,13 +33,16 @@
                     </nav>
                 </div>
 
-
-
+                <a class="nav-link collapsed" href="{{ url('admin/users')}}"  >
+                    <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                    Users
+                    <div class="sb-sidenav-collapse-arrow"><i class=""></i></div>
+                </a>
             </div>
         </div>
         <div class="sb-sidenav-footer">
             <div class="small">Logged in as:</div>
-            Start Bootstrap
+            Yaramay
         </div>
     </nav>
 </div>

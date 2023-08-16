@@ -16,7 +16,7 @@
                 <div class="alert alert-success">{{ session('message')}}</div>
             @endif
 
-            <table class="table table-bordered">
+            <table id="myDataTable" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -39,10 +39,10 @@
                             </td>
                             <td>{{$postitem->status == '1' ? 'Hidden' : 'Visible'}}</td>
                             <td>
-                                <a href="" class="btn btn-success">Edit</a>
+                                <a href="{{ url('admin/post/'.$postitem->id )}}" class="btn btn-success">Edit</a>
                             </td>
                             <td>
-                                <a href="" class="btn btn-danger">Delete</a>
+                                <a href="{{ url('admin/delete-post/'.$postitem->id )}}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach
